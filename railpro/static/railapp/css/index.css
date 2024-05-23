@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  html {
+    font-size: 62.5%;
+    /* 10px = 1 rem */
+    background-color: #A1BE95;
+    color: #F98866;
+  }
+  body{
+    background-color: #A1BE95;
+  }
+  .bgcol1{
+    background-color: #A1BE95;
+  }
+
+  /* navigation */
+  .buttwidth{
+    width: 200px;
+    height: 40px;
+  }
+ 
+  .linkremover{
+    text-decoration: none;
+    color: white;
+  }
+
+
+
+
+
+.carousela{
+    padding-top: .1rem;
+  
+  }
+  /* FOR WARING THAT WEBSITE IS OFF BETWEEN 23:50 TO 00:10 */
+  .nightoffwarn {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 600;
+    height: 3rem;
+  }
+  /* css for search bar and its bg */
+  .bigsearchbox {
+    margin-top: 1px;
+    padding: 1rem;
+    height: 16.5rem;
+    border: 3px solid red;
+    position: sticky;
+    top: 53px;
+    background-color: rgb(146, 154, 171);
+    border-radius: 2rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  .search-container {
+    height: 6rem;
+    margin-left: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border-radius: 2rem;
+    background-color: #293e53;
+    padding: 1rem;
+    border: 1px solid #cccccc;
+  }
+  .stationfromInput {
+    /* padding:10px; */
+    height: 3.7rem;
+    font-size: 1.6rem;
+    margin-top: .5rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 1rem 0 0 1rem;
+    width: 30rem;
+  }
+  .stationtoInput {
+    /* padding:10px; */
+    height: 3.7rem;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: .5rem;
+    border: 1px solid #ccc;
+    width: 30rem;
+  }
+ 
+  .searchbutton {
+    height: 3.7rem;
+    width: 10rem;
+    margin-top: .5rem;
+    padding: 0.4rem;
+    font-size: 1.8rem;
+   
+    border: 2px solid #ccc;
+    background-color: #007bff;
+    background-color: white;
+    border-radius: 0 1rem 1rem 0;
+    cursor: pointer;
+  }
+  .departuretext {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  .bookingtext {
+    /* border: 2px solid red; */
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 5rem;
+    color: white;
+    padding-left: 600px;
+  }
+  .searchbox {
+    margin-top: 10px;
+  }
+  .search-container button:hover {
+    background-color: #0056b3;
+  }
+  /* cards */
+  .colcard{
+    background-color: rgb(227, 254, 247);
+    border-radius: 3rem;
+  }
+  /* tour india */
+  .cardx{
+    height: 300px;
+    padding: 5px;
+    border-end-end-radius: 30px;
+    
+  }
+
+ /* ------------------------------------------------------------------- login page ----------------------------------------------------------------- */
+  .login-container {
+    margin-top: 5%;
+  }
+  .loginpad{
+    margin-top: 50px;
+  }
+
+ /* ------------------------------------------------------------------------pnr status----------------------------------------------------------------- */
+ .pnrwidth{
+    width: 200px;
+ }

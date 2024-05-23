@@ -1,0 +1,73 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3 class="text-center">RailJourney Ticket</h3>
+        </div>
+        <div class="card-body">
+            {% if ticket %}
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">PNR Number:</th>
+                            <td><strong>{{ ticket.pnr_no }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Name:</th>
+                            <td><strong>{{ ticket.head }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Train Name:</th>
+                            <td><strong>{{ ticket.train_name }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Train Number:</th>
+                            <td><strong>{{ ticket.train_no }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Destination:</th>
+                            <td><strong>{{ ticket.destination }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Origin Station:</th>
+                            <td><strong>{{ ticket.origin_station }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Class:</th>
+                            <td><strong>{{ ticket.train_class }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">No of passengers:</th>
+                            <td><strong>{{ ticket.copassengers }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total Fare:</th>
+                            <td><strong>{{ ticket.total_fare }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">No Of Passengers:</th>
+                            <td><strong>{{ ticket.passage }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gender:</th>
+                            <td><strong>{{ ticket.gender }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Train Date:</th>
+                            <td><strong>{{ ticket.train_date }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="fs-4">No ticket found with the provided PNR number.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

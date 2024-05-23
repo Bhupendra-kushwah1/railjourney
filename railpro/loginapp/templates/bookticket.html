@@ -1,0 +1,63 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+<br><br><br><br><hr>
+<div class="bigsearchbox">
+    <div>
+      <label for="" class="bookingtext">Search Your Train</label>
+      <label for=""></label>
+  
+    </div>
+    <div class="search-container searchbox">
+      <form method="post" action="{% url 'search_trains' %}">
+        {% csrf_token %}
+        <input type="text" id="" name="origin_station" class="stationfromInput" placeholder="Source Station" required>
+  
+        <input type="text" id="to" class="stationtoInput" name="destination" placeholder="Destination Station" required>
+  
+        <button type="submit" class="searchbutton">Search</button>
+      </form>
+    </div>
+
+    <br><hr>
+
+<!-- for result of search box -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="text-center">AVAILABLE TRAINS</h1>
+            {% if trains %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="fs-4">Train Name</th>
+                            <th class="fs-4">Train No</th>
+                            <th class="fs-4">SELECT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for train in trains %}
+                            <tr>
+                                <td class="fs-4">{{ train.train_name }}</td>
+                                <td class="fs-4">{{ train.train_no }}</td>
+                                <td class="fs-4"><a href="{% url 'booknow' train.train_no %}" class="btn btn-danger btn-md">Booknow</a></td>
+                                
+                                
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center class="fs-4"">No trains found for the given origin and destination.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<br><br><br><br><hr>
+
+
+
+{% endblock %}

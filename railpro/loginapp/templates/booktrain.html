@@ -1,0 +1,133 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+
+<br><br><br><br><hr>
+
+<div class="container">
+    <h1 class="text-center mb-4">TICKET BOOKING FORM </h1>
+    <form method="POST" action="{% url 'saveticket' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_train_name">Train Name:</label>
+            <input type="text" class="form-control bg-light" id="id_train_name" name="train_name" value="{{data.train_name}}" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="id_train_no">Train Number:</label>
+            <input type="text" class="form-control bg-light" id="id_train_no" name="train_no" value="{{data.train_no}}" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="id_destination">Destination:</label>
+            <input type="text" class="form-control bg-light" id="id_destination" name="destination" value="{{data.destination}}" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="id_origin_station">Origin Station:</label>
+            <input type="text" class="form-control bg-light" id="id_origin_station" name="origin_station" value="{{data.origin_station}}" required readonly>
+        </div>
+        
+        
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="id_sleeper_fare">Sleeper Fare:</label>
+                <input type="number" class="form-control bg-info" id="id_sleeper_fare" name="sleeper_fare" step="0.01" value="{{data.sleeper_fare}}" readonly>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac3_fare">AC3 Fare:</label>
+                <input type="number" class="form-control bg-success" id="id_ac3_fare" name="ac3_fare" step="0.01" value="{{data.ac3_fare}}" readonly>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac2_fare">AC2 Fare:</label>
+                <input type="number" class="form-control bg-warning" id="id_ac2_fare" name="ac2_fare" step="0.01" value="{{data.ac2_fare}}" readonly>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac1_fare">AC1 Fare:</label>
+                <input type="number" class="form-control bg-danger" id="id_ac1_fare" name="ac1_fare" step="0.01" value="{{data.ac1_fare}}" readonly>
+            </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="form-group">
+            <label for="id_train_class">Train Class:</label>
+            <select class="form-control bg-light" id="id_train_class" name="train_class" required onchange="calculateFare()">
+                <option value="Sleeper">Sleeper</option>
+                <option value="3AC">3AC</option>
+                <option value="2AC">2AC</option>
+                <option value="1AC">1AC</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_copassengers">No of Passengers (1-5):</label>
+            <input type="number" class="form-control bg-light" id="id_copassengers" name="copassengers" required min="1" max="5" onchange="calculateFare()">
+        </div>
+        <div class="form-group">
+            <label for="id_total_fare">Total Fare:</label>
+            <input type="text" class="form-control" id="id_total_fare" name="total_fare" readonly>
+        </div>
+        
+        <script>
+            function calculateFare() {
+                var selectedClass = document.getElementById("id_train_class").value;
+                var passengers = parseInt(document.getElementById("id_copassengers").value);
+                var fareField = document.getElementById("id_total_fare");
+        
+                var fare;
+                switch (selectedClass) {
+                    case "Sleeper":
+                        fare = parseFloat(document.getElementById("id_sleeper_fare").value);
+                        break;
+                    case "3AC":
+                        fare = parseFloat(document.getElementById("id_ac3_fare").value);
+                        break;
+                    case "2AC":
+                        fare = parseFloat(document.getElementById("id_ac2_fare").value);
+                        break;
+                    case "1AC":
+                        fare = parseFloat(document.getElementById("id_ac1_fare").value);
+                        break;
+                    default:
+                        fare = 0;
+                }
+        
+                if (!isNaN(passengers) && passengers > 0 && !isNaN(fare)) {
+                    fareField.value = (fare * passengers).toFixed(2);
+                } else {
+                    fareField.value = "";
+                }
+            }
+        </script>
+        
+
+
+
+
+        <div class="form-group">
+            <label for="id_train_name">Head Passenger Name:</label>
+            <input type="text" class="form-control bg-light" id="id_head" name="head"  required >
+        </div>
+        <div class="form-group">
+            <label for="id_train_name">Age:</label>
+            <input type="text" class="form-control bg-light" id="id_passage" name="passage" min="18"   required >
+        </div>
+        <div class="form-group">
+            <label for="id_gender">Gender:</label>
+            <select class="form-control bg-light" id="id_gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_train_date">Journey Date:</label>
+            <input type="date" class="form-control bg-light" id="id_train_date" name="train_date"  required >
+        </div>
+        
+       
+        
+        <button type="submit" class="btn btn-primary">BOOK TRAIN</button>
+    </form>
+</div>
+<br><br><br><br><br>
+
+{% endblock %}

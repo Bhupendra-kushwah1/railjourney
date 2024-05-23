@@ -1,0 +1,136 @@
+{% extends "layouts/app1.html" %}
+
+{% block title %}
+RailJourney
+{% endblock %}
+HOME
+{% block content %}
+
+<br><br><br><br>
+
+<!-- carousel -->
+<div class="carousela ">
+  <div id="carouselExampleInterval" class="carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img height="200rem" width="100%" src="\static\railapp\images\trainb.png" class="d-block w-100 opacity-50"
+          alt="trainimage">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img height="200rem" width="100%" src="\static\railapp\images\traincaro.jpg" class="d-block w-100"
+          alt="trainimage">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img height="200rem" width="100%" src="\static\railapp\images\headerbackground-1681363741.png"
+          class="d-block w-100" alt="trainimage">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!-- FOR WARING THAT WEBSITE IS OFF BETWEEN 23:50 TO 00:10 -->
+<div class="nightoffwarn">
+  <marquee direction="left" scrollamount="5">
+    Bookings and retrieving tickets are not allowed between 11:30pm to 12:30am due to maintainance every
+    night. Inconvenience caused is deeply regretted
+  </marquee>
+</div>
+
+<!-- train search box -->
+<div class="bigsearchbox">
+  <div>
+    <label for="" class="bookingtext">Search Your Train</label>
+    <label for=""></label>
+
+  </div>
+  <div class="search-container searchbox">
+    <form method="post" action="{% url 'search_trains' %}">
+      {% csrf_token %}
+      <input type="text" id="" name="origin_station" class="stationfromInput" placeholder="Source Station" required>
+
+      <input type="text" id="to" class="stationtoInput" name="destination" placeholder="Destination Station" required>
+
+      <button type="submit" class="searchbutton">Search</button>
+    </form>
+  </div>
+
+  
+  
+  <!-- cards for information -->
+  <div class="card-group">
+    <div class="card">
+      <img src="\static\railapp\images\card1.png" class="card-img-top px-4 py-2 colcard " alt="...">
+    </div>
+    <div class="card">
+      <img src="\static\railapp\images\card2.png" class="card-img-top px-4 py-2 colcard" alt="...">
+    </div>
+    <div class="card">
+      <img src="\static\railapp\images\card3.png" class="card-img-top px-4 py-2 colcard" alt="...">
+    </div>
+    <div class="card">
+      <img src="\static\railapp\images\card4.png" class="card-img-top px-4 py-2 colcard" alt="...">
+    </div>
+  </div>
+
+  <hr>
+  <!-- maruee for train -->
+  <div class="">
+    <marquee direction="left" scrollamount="5">
+      <img src="https://i.pinimg.com/originals/7c/17/11/7c171138dce9c07b0048bdeedea1b5da.gif" height="150px" width="250px" alt="train">
+    </marquee>
+  </div>
+
+  <hr>
+  <!-- explore india -->
+  <div class="card-group  mb-5">
+    <div class="card ">
+      <img src="\static\railapp\images\tour1.jpg" class="card-img-top cardx" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">KUTUB MINAR</h5>
+        
+      </div>
+    </div>
+    <div class="card">
+      <img src="\static\railapp\images\tour2.jpg" class="card-img-top cardx" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">AKSHARDHAM TEMPLE</h5>
+       
+      </div>
+    </div>
+    <div class="card">
+      <img src="\static\railapp\images\tour3.jpg" class="card-img-top cardx" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">VARANASI</h5>
+        
+      </div>
+    </div>
+    <div class="card">
+      <img src="\static\railapp\images\tour4.jpg" class="card-img-top cardx" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">SAM SAND DUNES</h5>
+        
+      </div>
+    </div>
+    <div class="card">
+      <a href="https://delhitourism.gov.in/delhitourism/tourist_place/india_gate.jsp" target="_blank" class="text-decoration-none">
+        <img src="\static\railapp\images\tour5.jpg" class="card-img-top cardx " alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">INDIA GATE</h5>
+        
+      </div>
+      </a>
+      
+    </div>
+  </div>
+
+  <br><br><br><br>
+
+  {% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User's Tickets</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional CSS styles */
+        .ticket-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .ticket {
+            width: 400px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .ticket-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ticket-details li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body >
+    <div class=" d-flex justify-content-end text-danger">
+       <h5><a href="{% url 'home' %}" class="linkremover align-items-center">BACK TO HOMEPAGE</a></h5>
+    </div>
+    
+    <div class="container" >
+        <!-- <h1 class="text-center">User's Tickets</h1> -->
+        {% for ticket in user_tickets %}
+            {% if forloop.last %}
+                <div class="ticket-container" >
+                    <div class="ticket" style="background-color: rgb(68, 129, 109);">
+                        <ul class="ticket-details">
+                            <li><strong>Name:</strong> {{ ticket.head }}</li>
+                            <li><strong>PNR No:</strong> {{ ticket.pnr_no }}</li>
+                            <li><strong>Train Name:</strong> {{ ticket.train_name }}</li>
+                            <li><strong>Train No:</strong> {{ ticket.train_no }}</li>
+                            <li><strong>Destination:</strong> {{ ticket.destination }}</li>
+                            <li><strong>Origin Station:</strong> {{ ticket.origin_station }}</li>
+                            <li><strong>Train Class:</strong> {{ ticket.train_class }}</li>
+                            <li><strong>No of Passengers:</strong> {{ ticket.copassengers }}</li>
+                            <li><strong>Total Fare:</strong> {{ ticket.total_fare }}</li>
+                            <li><strong>AGE:</strong> {{ ticket.passage }}</li>
+                            <li><strong>Gender:</strong> {{ ticket.gender }}</li>
+                            <li><strong>Train Date:</strong> {{ ticket.train_date }}</li>
+                        </ul>
+                        <button class="btn btn-primary d-print-none" onclick="window.print()">Print Ticket</button>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Bootstrap JS (optional if you need JS functionalities from Bootstrap) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+

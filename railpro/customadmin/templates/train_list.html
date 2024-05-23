@@ -1,0 +1,61 @@
+{% extends 'layouts1/app1.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+
+
+
+
+<div class="container fs-3">
+    <h1 class="mb-4 fs-3">Train List</h1>
+    <table class="table table-striped fs-3">
+        <thead class="thead-dark fs-3">
+            <tr>
+                <th>S.No</th>
+                <th>Train Name</th>
+                <th>Train No</th>
+                <th>Destination</th>
+                <th>Origin Station</th>
+                <th>Sleeper Seats</th>
+                <th>AC3 Seats</th>
+                <th>AC2 Seats</th>
+                <th>AC1 Seats</th>
+                <th>Sleeper Fare</th>
+                <th>AC3 Fare</th>
+                <th>AC2 Fare</th>
+                <th>AC1 Fare</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for train in trains %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ train.train_name }}</td>
+                <td>{{ train.train_no }}</td>
+                <td>{{ train.destination }}</td>
+                <td>{{ train.origin_station }}</td>
+                <td>{{ train.sleeper_seats }}</td>
+                <td>{{ train.ac3_seats }}</td>
+                <td>{{ train.ac2_seats }}</td>
+                <td>{{ train.ac1_seats }}</td>
+                <td>{{ train.sleeper_fare }}</td>
+                <td>{{ train.ac3_fare }}</td>
+                <td>{{ train.ac2_fare }}</td>
+                <td>{{ train.ac1_fare }}</td>
+                <td>
+                    <a href="{% url 'deletetrain' train.train_no %}" class="btn btn-primary btn-sm">Delete</a>
+                    <a href="{% url 'update' train.train_no %}" class="btn btn-danger btn-sm">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+<br><br><br><br>
+
+
+{% endblock %}

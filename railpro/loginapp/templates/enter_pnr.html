@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter PNR Number</title>
+</head>
+<body>
+    <h1>Enter PNR Number</h1>
+    <form method="post" action="{% url 'enter_pnr' %}">
+        {% csrf_token %}
+        <label for="pnr_no">PNR Number:</label>
+        <input type="text" name="pnr_no" id="pnr_no">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

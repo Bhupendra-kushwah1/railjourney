@@ -1,0 +1,74 @@
+{% extends 'layouts1/app1.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+
+
+
+
+
+<div class="container">
+    <h1 class="text-center mb-4">UPDATE TRAIN </h1>
+    <form method="POST" action="{% url 'update' data.train_no %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_train_name">Train Name:</label>
+            <input type="text" class="form-control bg-light" id="id_train_name" name="train_name" value="{{data.train_name}}" required>
+        </div>
+        <div class="form-group">
+            <label for="id_train_no">Train Number:</label>
+            <input type="text" class="form-control bg-light" id="id_train_no" name="train_no" value="{{data.train_no}}" required>
+        </div>
+        <div class="form-group">
+            <label for="id_destination">Destination:</label>
+            <input type="text" class="form-control bg-light" id="id_destination" name="destination" value="{{data.destination}}" required>
+        </div>
+        <div class="form-group">
+            <label for="id_origin_station">Origin Station:</label>
+            <input type="text" class="form-control bg-light" id="id_origin_station" name="origin_station" value="{{data.origin_station}}" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="id_sleeper_seats">Sleeper Seats:</label>
+                <input type="number" class="form-control bg-info" id="id_sleeper_seats" name="sleeper_seats" value="{{data.sleeper_seats}}" >
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac3_seats">AC3 Seats:</label>
+                <input type="number" class="form-control bg-success" id="id_ac3_seats" name="ac3_seats" value="{{data.ac3_seats}}" >
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac2_seats">AC2 Seats:</label>
+                <input type="number" class="form-control bg-warning" id="id_ac2_seats" name="ac2_seats" value="{{data.ac2_seats}}" >
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac1_seats">AC1 Seats:</label>
+                <input type="number" class="form-control bg-danger" id="id_ac1_seats" name="ac1_seats" value="{{data.ac1_seats}}" >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="id_sleeper_fare">Sleeper Fare:</label>
+                <input type="number" class="form-control bg-info" id="id_sleeper_fare" name="sleeper_fare" step="0.01" value="{{data.sleeper_fare}}">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac3_fare">AC3 Fare:</label>
+                <input type="number" class="form-control bg-success" id="id_ac3_fare" name="ac3_fare" step="0.01" value="{{data.ac3_fare}}">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac2_fare">AC2 Fare:</label>
+                <input type="number" class="form-control bg-warning" id="id_ac2_fare" name="ac2_fare" step="0.01" value="{{data.ac2_fare}}">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_ac1_fare">AC1 Fare:</label>
+                <input type="number" class="form-control bg-danger" id="id_ac1_fare" name="ac1_fare" step="0.01" value="{{data.ac1_fare}}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">UPDATE TRAIN</button>
+    </form>
+</div>
+
+
+  <br><br><br><br><br><br><br>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+<!-- search_pnr.html -->
+
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-6">
+            <form method="post" class="fs-4">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="pnr_number" placeholder="Enter PNR Number" class="form-control fs-4" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+                {% if error_message %}
+<div class="alert alert-danger mt-3 fs-4" role="alert">
+    {{ error_message }}
+</div>
+{% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

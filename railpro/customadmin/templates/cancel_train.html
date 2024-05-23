@@ -1,0 +1,24 @@
+{% extends 'layouts1/app1.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+<body class="bg-light">
+
+    <div class="container">
+        <h1 class="text-center mb-4 fs-3">Delete Train</h1>
+        {% if message %}
+        <div class="alert alert-success fs-3">{{ message }}</div>
+        {% endif %}
+        <form method="post" action="{% url 'canceltrain' %}">
+            {% csrf_token %}
+            <div class="form-group fs-3">
+                <label for="train_no">Train Number:</label>
+                <input type="text" class="form-control fs-3" id="train_no" name="train_no" required>
+            </div>
+            <button type="submit" class="btn btn-danger fs-3">Delete Train</button>
+        </form>
+    </div>
+
+
+
+{% endblock %}

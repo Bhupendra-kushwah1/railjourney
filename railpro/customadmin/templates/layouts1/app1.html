@@ -1,0 +1,130 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{%static 'railapp/css/index.css' %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Sign-In JavaScript -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID_HERE">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    
+
+    <!-- link gor google api for font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <div>
+        <nav class="navbar navbar-dark bg-success fixed-top fs-3 h-2 ">
+            <div class="container-fluid">
+                
+                <h2>ADMIN DASHBOARD</h2>
+                
+                <button class="bg-success text-white buttwidth"><a href="{% url 'addtrain' %}" class="linkremover">ADD TRAIN</a></button>
+                <button class="bg-success text-white buttwidth"><a href="{% url 'canceltrain' %}" class="linkremover">CANCEL TRAIN</a></button>
+                <button class="bg-success text-white buttwidth"><a href="{% url 'trainslist' %}" class="linkremover">TRAIN LIST</a></button>
+                <button class="bg-success text-white buttwidth"><a href="{% url 'adminlogout' %}" class="linkremover">LOGOUT</a></button>
+                
+    
+                
+                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header" style="background-color:  #A1BE95;">
+                        <h5 class="offcanvas-title fs-1 text-danger " id="offcanvasDarkNavbarLabel">RailJourney</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div>
+    
+                    </div>
+                    <div class="offcanvas-body" style="background-color:  #A1BE95;">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="background-color:  #A1BE95;">
+                            <li class="nav-item">
+                                <a class="btn btn-success m-1 buttwidth fs-3" aria-current="page" href="{% url 'home' %}" target="_blank">USER PANEL HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-success m-1 buttwidth fs-3" href="{% url 'bookticket' %}" target="_blank">BOOK TRAIN</a>
+                            </li>
+                            
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div style="background-color: #A1BE95;">
+
+   
+        {% block content %}
+    {% endblock %}
+    </div>
+   
+
+    <!-- footer  -->
+    <div class="container fixed-bottom" style="height: 80px;">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <img src="\static\railapp\images\tour1.jpg" height="50px" width="50px" alt="logo">
+                </a>
+                <span class=" fs-3 mb-3 mb-md-0 text-body-secondary">© 2024 RailJourney, India</span>
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <img src="\static\railapp\images\footlogo.jpg" height="50px" width="100px" alt="logo">
+                </a>
+
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <img src="\static\railapp\images\footlogo1.png" height="50px" width="200px" alt="logo">
+                </a>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#twitter"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+

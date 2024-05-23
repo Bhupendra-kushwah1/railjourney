@@ -1,0 +1,48 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+{% if confirm_delete %}
+    <script>
+        $(document).ready(function () {
+            // Show confirmation dialog when the page loads
+            if (confirm("Are you sure you want to cancel the ticket with PNR {{ pnr }}?")) {
+                // If confirmed, submit the form
+                $('#cancel-ticket-form').submit();
+            } else {
+                // If not confirmed, redirect to some other page or handle as needed
+                window.location.href = '{% url "some_other_page" %}';
+            }
+        });
+    </script>
+{% endif %}
+<div class="container mt-5">
+    <br><br><br><br>
+    <h2 class="text-center mb-4">CANCEL YOUR TICKETS</h2>
+    <hr>
+    <br><br><br>
+    <form id="pnrForm" action="{% url 'cancelticket' %}" method="get">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form id="cancel-ticket-form">
+                        <div class="form-group">
+                            <label for="pnr" class="fs-3">Enter PNR Number:</label>
+                            <input type="text" class="form-control pnrwidth fs-4" id="pnr" name="pnr" placeholder="Enter your PNR number" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary fs-4">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+        <br><br><br><hr>
+            <div class="fs-3 m-1 text-center text-danger">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+     
+</div>
+
+{% endblock %}
